@@ -1,0 +1,123 @@
+var Y=350;
+var X=200;
+var RectXHitBox=175/2;
+var RectX=random(175/2,400-175/2);
+var RectY=44;
+var RectYHitBox=20/2;
+var score = 0;
+var speed = 1;
+var number = 1;
+var logoBrightness = 255;
+var backgroundBright1 = 0;
+var backgroundBright2 = 0;
+var backgroundBright3 = 0;
+var Y21 = 170;
+var Y11 = 105;
+var Y22 = 265;
+var Y12 = 200;
+var timer = 1;
+draw = function() {
+    background(0, 0, 0);
+    fill(0, 255, 0);
+    textSize(30);
+    timer +=1;
+    //do not increase this number or the page will freeze and the program won't save
+if(number<10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000){
+        text(number,1,1,400,400);
+    number *=40;
+}else if (number>10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000){
+    stroke(0, logoBrightness, 0);
+    strokeWeight(5);
+    //M
+    line(87,Y11,88,Y21);  
+    line(88,Y11,111,Y21);
+    line(134,Y11,111,Y21);
+    line(134,Y11,134,Y21);
+    //A
+    line(175,Y11,157,Y21);
+    line(175,Y11,190,Y21);
+    //T
+    line(230,Y11,230,Y21);
+    line(211,Y11,248,Y11);
+    //A
+    line(294,Y11,276,Y21);
+    line(294,Y11,312,Y21);
+    
+    
+    //H
+    line(88,Y12,88,Y22);
+    line(88,Y12+32.5,88+46,Y22-32.5);
+    line(88+46,Y12,88+46,Y22);
+    //U
+    line(175,Y22,190,Y12);
+    line(175,Y22,157,Y12);
+    //K
+    line(212,Y12,211,Y22);
+    line(212,Y12+32.5,248,Y22-65);
+    line(212,Y12+32.5,248,Y22);
+    //I
+    line(276,Y12,312,Y12);
+    line(276,Y22,312,Y22);
+    line(276+18,Y12,276+18,Y22);
+    
+    logoBrightness -=2;
+    if (logoBrightness<100){
+        Y11-=5;
+        Y21-=5;
+        Y12+=5;
+        Y22+=5;
+    }
+    }
+    if (timer>300){
+        draw = function() {
+            background(backgroundBright1,backgroundBright2,backgroundBright3);
+            backgroundBright1 +=2;
+            backgroundBright2 +=2;
+            backgroundBright3 +=2;
+            rectMode(CENTER);
+draw = function() {
+    background(255, 255, 255);
+    score+=1;
+    rect(X,Y,60,60,10);
+    fill(0, 0, 0);
+    rect(X,Y-9,60,41,10);
+    fill(255, 255, 255);
+    ellipse(X-14,Y-8,17,10);
+    ellipse(X+15,Y-8,17,10);
+    fill(255, 0, 0);
+    rect(RectX,RectY,175,20);
+    fill(255, 255, 255);
+    RectY+=speed;
+    if(keyCode===RIGHT){
+        X+=2;
+    }
+    if(keyCode===LEFT){
+        X-=2;
+    }
+    if(X===30){
+        X+=2;
+    }
+    if(X===370){
+        X-=2;
+    }
+    if(RectY>415){
+        RectY-=415;
+        RectX-=RectX;
+        speed+=0.2;
+        RectX+=random(87.5,312.5);
+    }
+    constrain(Y,30,370);
+    constrain(X,30,370);
+    if(X-30<RectX+RectXHitBox&&X+30>RectX-RectXHitBox&&Y-30<RectY+RectYHitBox&&Y+30>RectY-RectYHitBox){
+        draw= function() {
+            background(255, 0, 0);
+            textSize(40);
+            text("     You Lost!\nYour Score Was",58,177);
+            text(      score/100,158,274);
+        };
+    }
+};
+
+        };
+    }
+};
